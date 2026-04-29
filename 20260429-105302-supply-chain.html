@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Supply Chain Scan: 20260429-105302-supply-chain</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+  <style>
+/* Deep Review — canonical stylesheet
+ * Inlined into each generated HTML file by the beautify-review skill.
+ * Edit this file to change the look of all future reviews.
+ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: #1f2937;
+  background: #f8f9fb;
+  margin: 0;
+  padding: 2rem 1rem;
+}
+main { max-width: 900px; margin: 0 auto; }
+h1 { font-size: 1.6rem; margin-bottom: 0.5rem; color: #111827; }
+h2 { font-size: 1.35rem; margin-top: 2.5rem; margin-bottom: 1rem; color: #111827; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.4rem; }
+h3 { font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 0.8rem; }
+hr { border: none; border-top: 2px solid #e5e7eb; margin: 2rem 0; }
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+code { font-family: "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace; font-size: 0.85em; background: #f3f4f6; padding: 0.15em 0.35em; border-radius: 4px; }
+
+/* Code blocks — override Prism defaults */
+pre { margin: 0 !important; border-radius: 0 0 8px 8px !important; }
+pre[class*="language-"] { font-size: 0.78rem; line-height: 1.3; }
+pre code { background: none; padding: 0; }
+
+/* Report metadata table */
+.meta-table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }
+.meta-table td { padding: 0.35rem 0.6rem; border: 1px solid #e5e7eb; vertical-align: top; }
+.meta-table td:first-child { font-weight: 600; width: 140px; background: #f9fafb; white-space: nowrap; }
+
+/* Cards — every section and finding lives in a card */
+.card { border-radius: 10px; padding: 1.2rem 1.4rem; margin-bottom: 1.2rem; }
+.card-neutral { background: #f1f3f5; border: 1px solid #d5d9e0; }
+.card-critical { background: #ffeef0; border: 1px solid #f5c6cb; }
+.card-important { background: #fff0e0; border: 1px solid #f5d9a8; }
+.card-suggestion { background: #f0f6ff; border: 1px solid #c7d9f5; }
+.card-design { background: #f0faf4; border: 1px solid #b7e4c7; }
+
+/* Severity section headings — colored to match their cards */
+.section-critical { color: #9b1c1c; }
+.section-important { color: #92400e; }
+.section-suggestion { color: #1e40af; }
+.section-design { color: #065f46; }
+
+/* Agent attribution pills */
+.pill { display: inline-block; font-size: 0.72rem; font-weight: 600; padding: 0.15em 0.55em; border-radius: 999px; margin-right: 0.3em; vertical-align: middle; letter-spacing: 0.01em; }
+.pill-claude { background: #e9d5ff; color: #6b21a8; }
+.pill-codex { background: #d1fae5; color: #065f46; }
+.pill-gemini { background: #ffe4e6; color: #9f1239; }
+
+/* Finding titles */
+.finding-title { font-weight: 700; font-size: 1rem; margin-bottom: 0.6rem; line-height: 1.4; }
+.finding-num { font-weight: 800; }
+
+/* Code file header — dark bar above each source code block.
+ * The filename is a GitHub permalink to the displayed line range.
+ * Text color is light gray (#adbac7) for the bar, green (#7ee787)
+ * for the hyperlink — matching GitHub's dark-mode file header. */
+.code-file-header { background: #2d333b; color: #adbac7; font-family: "SF Mono", "Fira Code", Menlo, Consolas, monospace; font-size: 0.75rem; padding: 0.4rem 0.9rem; border-radius: 8px 8px 0 0; margin-top: 0.8rem; }
+.code-file-header a { color: #7ee787; }
+.code-file-header a:hover { text-decoration: underline; }
+
+/* Line numbers (CSS counters) and line highlighting */
+.code-line { display: block; }
+.code-line::before {
+  content: counter(line);
+  counter-increment: line;
+  display: inline-block;
+  width: 3em;
+  margin-right: 0.8em;
+  padding-right: 0.5em;
+  text-align: right;
+  color: #636e7b;
+  border-right: 1px solid #3d4556;
+  user-select: none;
+}
+.line-hl { background: rgba(255, 199, 0, 0.18); }
+
+/* Pilcrow anchor links — hidden until parent is hovered */
+.pilcrow { color: #d1d5db; text-decoration: none; font-weight: 400; margin-left: 0.4em; opacity: 0; transition: opacity 0.15s; }
+h2:hover .pilcrow, h3:hover .pilcrow, .finding-title:hover .pilcrow { opacity: 1; }
+.pilcrow:hover { color: #6b7280; text-decoration: none; }
+
+/* Fix label */
+.fix-label { font-weight: 700; }
+
+/* Agent retro summary table */
+.retro-table { width: 100%; border-collapse: collapse; margin-top: 0.8rem; font-size: 0.9rem; table-layout: fixed; }
+.retro-table th, .retro-table td { padding: 0.45rem 0.7rem; border: 1px solid #e5e7eb; text-align: left; }
+.retro-table th { background: #f3f4f6; font-weight: 600; }
+.retro-table tr:nth-child(even) { background: #f9fafb; }
+
+/* Supply-chain Summary table — first column gets breathing room,
+ * numeric middle columns center, header keeps its label on one line. */
+.summary-table { width: 100%; border-collapse: collapse; margin: 0.4rem 0 0.8rem; font-size: 0.92rem; }
+.summary-table th, .summary-table td {
+  padding: 0.4rem 0.7rem;
+  border: 1px solid #d5d9e0;
+  vertical-align: top;
+  text-align: left;
+}
+.summary-table th { background: rgba(255, 255, 255, 0.65); font-weight: 600; white-space: nowrap; }
+.summary-table td:first-child { min-width: 11rem; white-space: nowrap; }
+.summary-table th:not(:first-child):not(:last-child),
+.summary-table td:not(:first-child):not(:last-child) { text-align: center; }
+
+/* Lists and paragraphs inside cards */
+.card ul, .card ol { margin: 0.4rem 0; padding-left: 1.5rem; }
+.card li { margin-bottom: 0.3rem; }
+.card p { margin: 0.5rem 0; }
+.card p:first-child { margin-top: 0; }
+
+/* Supply-chain issue rows — used by issueList for bullets that
+ * uniformly start with a `file:line` reference. The location renders
+ * in a dark bar above the description so the eye picks up the path
+ * separately from the prose. */
+.issue-list { margin: 0.6rem 0; }
+.issue-row {
+  margin-bottom: 0.7rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.55);
+}
+.issue-loc {
+  background: #2d333b;
+  color: #adbac7;
+  padding: 0.3rem 0.7rem;
+  font-family: "SF Mono", "Fira Code", Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+}
+.issue-loc a { color: #7ee787; text-decoration: none; }
+.issue-loc a:hover { text-decoration: underline; }
+.issue-loc code { background: none; padding: 0; color: inherit; font-size: 1em; }
+.issue-desc { padding: 0.55rem 0.8rem; }
+.issue-desc code { font-size: 0.85em; }
+
+/* Verdict highlight in metadata table */
+.verdict { font-weight: 700; }
+
+/* GitHub reference tooltips — shown on hover for #N links */
+.gh-tooltip {
+  position: absolute;
+  background: #1f2328;
+  color: #e6edf3;
+  padding: 0.55em 0.75em;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  max-width: 380px;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.28);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+.gh-tooltip-state {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.15em 0.5em;
+  border-radius: 999px;
+  margin-right: 0.4em;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+.gh-state-open { background: #238636; color: #fff; }
+.gh-state-closed { background: #848d97; color: #fff; }
+.gh-state-merged { background: #8957e5; color: #fff; }
+.gh-tooltip-title { vertical-align: baseline; }
+
+/* Mobile */
+@media (max-width: 640px) {
+  body { padding: 1rem 0.5rem; }
+  .card { padding: 0.9rem 1rem; }
+  pre code { font-size: 0.72rem; }
+}
+
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Supply Chain Scan: 20260429-105302-supply-chain</h1>
+
+    <table class="meta-table">
+      <tr><td>Date</td><td>2026-04-29 10:53</td></tr>
+      <tr><td>Repo</td><td><a href="https://github.com/k3s-io/k3s">k3s-io/k3s</a></td></tr>
+      <tr><td>Branch</td><td><code>main</code> @ <a href="https://github.com/k3s-io/k3s/commit/ef3bb6566"><code>ef3bb6566</code></a></td></tr>
+      <tr><td>Kind</td><td>Supply chain scan</td></tr>
+      <tr><td>Verdict</td><td><span class="verdict">Open issues</span> &mdash; 1 self-fetch from a moving ref, 3 unverified inline downloads, 6 git clones at floating tags, 4 unpinned <code>FROM</code> bases, 54 unpinned <code>image:</code> references in manifests, 2 workflows missing <code>permissions:</code> blocks</td></tr>
+    </table>
+
+    <hr>
+
+    <hr>
+    <h2 id="summary">Summary <a href="#summary" class="pilcrow">&#182;</a></h2>
+
+    <div class="card card-neutral">
+    <table class="summary-table">
+      <thead><tr><th>Ecosystem</th><th>Items</th><th>Pinned</th><th>Open issues</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><a href="#go-modules">Go modules</a></td><td>1 module (430 requires, 1 replace)</td><td>1 with <code>go.sum</code></td><td>0</td><td>Dependabot ✗ for Go</td></tr>
+        <tr><td>GitHub Actions <code>uses:</code></td><td>112 references</td><td>91 SHA-pinned + 21 local/docker</td><td>0</td><td>Dependabot ✓</td></tr>
+        <tr><td>Workflow tokens</td><td>40 <code>permissions:</code> declarations</td><td>—</td><td>2 missing block, 7 sensitive-write workflows</td><td>—</td></tr>
+        <tr><td>Dockerfile <code>FROM</code></td><td>4 bases</td><td>0 digest-pinned</td><td>4</td><td>—</td></tr>
+        <tr><td>Kubernetes / Helm <code>image:</code></td><td>54 references</td><td>0 digest-pinned</td><td>54</td><td>Dependabot ✗ for k8s manifests</td></tr>
+        <tr><td><a href="#inline-downloads-with-stored-digest-verification">Inline downloads</a></td><td>29 candidate lines</td><td>5 verified + 16 false-positive matches in <code>install.sh</code> shells</td><td>3 real</td><td>—</td></tr>
+        <tr><td><a href="#run-from-network-commands-4-of-4-verified">Run-from-network</a></td><td>4 <code>go install</code> commands</td><td>4 (Go module proxy + pinned versions)</td><td>0</td><td>—</td></tr>
+        <tr><td>Git clones in scripts</td><td>6 clones</td><td>0 SHA-pinned</td><td>6</td><td>—</td></tr>
+        <tr><td>Self-fetch (own remote, moving ref)</td><td>1 URL</td><td>—</td><td>1</td><td>—</td></tr>
+        <tr><td>Bot config</td><td>Dependabot covers <code>docker</code> + <code>github-actions</code></td><td>—</td><td>—</td><td>Renovate not configured</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <hr>
+    <h2 id="pinned-dependencies" class="section-design">Pinned dependencies <a href="#pinned-dependencies" class="pilcrow">&#182;</a></h2>
+
+    <div class="card card-design">
+    <h3 id="go-modules">Go modules <a href="#go-modules" class="pilcrow">&#182;</a></h3>
+    <p><code>go.mod</code> declares 430 requires plus 1 <code>replace</code> block; <code>go.sum</code> is committed and covers every module via SHA-256 hash. The single <code>replace</code> directive at <a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/go.mod#L5"><code>go.mod:5</code></a> opens a block — no individual replace targets a fork without a pseudo-version. No Go workspace is in use (<code>go.work</code> absent), so workspace-lock concerns do not apply.</p>
+    </div>
+    <div class="card card-design">
+    <h3 id="github-actions">GitHub Actions <a href="#github-actions" class="pilcrow">&#182;</a></h3>
+    <p>All 91 third-party <code>uses:</code> references end in a 40-hex commit SHA. The remaining 21 references are local (<code>./.github/actions/...</code>) or <code>docker://...</code> and do not pull bytes from a moving ref. Dependabot is configured for <code>github-actions</code> so SHA bumps stay current.</p>
+    </div>
+    <div class="card card-design">
+    <h3 id="run-from-network-commands-4-of-4-verified">Run-from-network commands (4 of 4 verified) <a href="#run-from-network-commands-4-of-4-verified" class="pilcrow">&#182;</a></h3>
+    <p>All four <code>go install</code> invocations target a concrete module version on the Go module proxy, which verifies fetched bytes against <code>go.sum</code>-style checksums by default:</p>
+    <div class="issue-list">
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/.github/workflows/govulncheck.yml#L22"><code>.github/workflows/govulncheck.yml:22</code></a></div>
+        <div class="issue-desc"><code>golang.org/x/vuln/cmd/govulncheck@v1.1.4</code></div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/Dockerfile.local#L18"><code>Dockerfile.local:18</code></a></div>
+        <div class="issue-desc"><code>golang.org/x/tools/cmd/goimports@gopls/v0.20.0</code></div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/tests/integration/Dockerfile.test#L16"><code>tests/integration/Dockerfile.test:16</code></a></div>
+        <div class="issue-desc"><code>github.com/onsi/ginkgo/v2/ginkgo@v2.17.1</code></div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/tests/integration/Dockerfile.test#L17"><code>tests/integration/Dockerfile.test:17</code></a></div>
+        <div class="issue-desc"><code>github.com/onsi/gomega@v1.32.0</code></div>
+      </div>
+    </div>
+    </div>
+    <div class="card card-design">
+    <h3 id="inline-downloads-with-stored-digest-verification">Inline downloads with stored-digest verification <a href="#inline-downloads-with-stored-digest-verification" class="pilcrow">&#182;</a></h3>
+    <ul>
+      <li><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/Dockerfile.test#L27"><code>Dockerfile.test:27</code></a> — sonobuoy tarball + kubectl binary checked against <code>KUBECTL_SHA256</code> and the official sonobuoy <code>_checksums.txt</code>.</li>
+      <li><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/Dockerfile.test#L62"><code>Dockerfile.test:62</code></a> — bento Ubuntu vagrant box optionally checked against <code>BENTO_BOX_SHA256</code>.</li>
+      <li><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/download#L29"><code>scripts/download:29</code></a> — <code>k3s-root</code> tar checked against per-arch <code>K3S_ROOT_SHA256</code> baked into <code>scripts/version.sh</code>.</li>
+      <li><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/tests/e2e/scripts/init.sh#L8"><code>tests/e2e/scripts/init.sh:8</code></a>, <code>:24</code>, <code>:48</code> — kubectl, Go tarball, vagrant zip each verified against an inline <code>*_SHA256</code> constant.</li>
+      <li><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/.github/actions/vagrant-setup/action.yaml#L9"><code>.github/actions/vagrant-setup/action.yaml:9</code></a> — HashiCorp APT signing key fetched and then verified against the hard-coded <code>798AEC654E5C15428C8E42EEAA16FCBCA621E701</code> GPG fingerprint before being added to the keyring (the inventory script flagged this as &quot;verifier ✗&quot; because it scans for <code>sha256sum -c</code> / <code>gpg --verify</code> / <code>*_SUM_*</code> patterns; the GPG-fingerprint-comparison pattern is a missed verifier — see Phase 4 retro).</li>
+    </ul>
+    </div>
+    <div class="card card-design">
+    <h3 id="bot-auto-update-config">Bot / auto-update config <a href="#bot-auto-update-config" class="pilcrow">&#182;</a></h3>
+    <p><code>.github/dependabot.yml</code> covers <code>docker</code> and <code>github-actions</code>. Renovate is not configured. Dependabot does not cover Go modules (those bumps ride along with upstream Kubernetes rebases) or the in-tree Kubernetes / Helm manifests in <code>manifests/</code> and <code>tests/</code>.</p>
+    </div>
+    <hr>
+    <h2 id="open-issues" class="section-critical">Open issues <a href="#open-issues" class="pilcrow">&#182;</a></h2>
+
+    <div class="card card-critical">
+    <h3 id="top-tier-self-fetch-from-a-moving-ref">Top tier — self-fetch from a moving ref <a href="#top-tier-self-fetch-from-a-moving-ref" class="pilcrow">&#182;</a></h3>
+    <div class="issue-list">
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/tests/e2e/scripts/setup_rootless.sh#L4-L10"><code>tests/e2e/scripts/setup_rootless.sh:4-10</code></a></div>
+        <div class="issue-desc"><code>curl -LJO &quot;https://raw.githubusercontent.com/k3s-io/k3s/main/k3s-rootless.service&quot;</code> pulls the systemd unit from <code>main</code> of the same repo this script lives in. Anyone who pushes a malicious branch ref or wins a race against the rolling <code>main</code> SHA controls what gets installed in the rootless test VM. Replace the curl with a relative-path read of the in-tree file (the script is committed at <code>tests/e2e/scripts/</code>; the unit lives at the repo root) or pin the URL to a 40-hex SHA.</div>
+      </div>
+    </div>
+    </div>
+    <div class="card card-critical">
+    <h3 id="inline-downloads-without-digest-verification">Inline downloads without digest verification <a href="#inline-downloads-without-digest-verification" class="pilcrow">&#182;</a></h3>
+    <div class="issue-list">
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/Dockerfile.test#L77-L80"><code>Dockerfile.test:77-80</code></a></div>
+        <div class="issue-desc"><code>curl -O -L &quot;https://golang.org/dl/${GO_VERSION}.linux-amd64.tar.gz&quot;</code> followed immediately by <code>tar -C /usr/local -xzf</code> with no <code>sha256sum -c</code> step. The inventory script marked the line &quot;verifier ✓&quot; because the kubectl block at <code>:73-74</code> and the bento-box block at <code>:62-66</code> lie inside the ±30-line window — that heuristic is too loose, see Phase 4 retro. Add a <code>GO_SHA256=...</code> constant and an <code>echo &quot;${GO_SHA256}  ${GO_VERSION}.linux-amd64.tar.gz&quot; | sha256sum -c -</code> check before extracting.</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/download#L47"><code>scripts/download:47</code></a></div>
+        <div class="issue-desc"><code>curl -sfL ${CHARTS_URL}/${CHART_NAME}/${CHART_FILE} -o ${CHARTS_DIR}/${CHART_FILE}</code> fetches every k3s Helm chart from <code>https://k3s.io/k3s-charts/assets</code> with no checksum check. The charts get embedded in the k3s binary via <code>pkg/static/embed/</code> and ship to every k3s cluster. Pin each chart&#39;s SHA-256 alongside its filename (mirroring the <code>K3S_ROOT_SHA256</code> pattern in <code>scripts/version.sh</code>) and verify after download.</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/image_scan.sh#L36"><code>scripts/image_scan.sh:36</code></a></div>
+        <div class="issue-desc"><code>curl -fsS -o ${VEX_REPORT} https://raw.githubusercontent.com/rancher/vexhub/refs/heads/main/reports/rancher.openvex.json</code> pulls the VEX exception list from <code>main</code> of an external repo. Whoever owns <code>rancher/vexhub</code> can suppress vulnerability findings on any image this script scans. Pin to a commit SHA in the URL, or vendor the file and bump it through Dependabot.</div>
+      </div>
+    </div>
+    </div>
+    <div class="card card-critical">
+    <h3 id="git-clones-at-floating-tags-branches">Git clones at floating tags / branches <a href="#git-clones-at-floating-tags-branches" class="pilcrow">&#182;</a></h3>
+    <p>All six clones run during the build or test setup and execute the resulting working tree, so the threat model matches <code>curl … | tar</code>. None pin to a 40-hex SHA.</p>
+    <div class="issue-list">
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/build#L168"><code>scripts/build:168</code></a></div>
+        <div class="issue-desc"><code>git clone --branch=$VERSION_CNIPLUGINS https://github.com/rancher/plugins.git</code> (resolves to tag <code>v1.9.1-k3s1</code> per <a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/version.sh#L58"><code>scripts/version.sh:58</code></a>).</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/build#L171"><code>scripts/build:171</code></a></div>
+        <div class="issue-desc"><code>git clone --branch=$VERSION_FLANNEL_PLUGIN https://github.com/flannel-io/cni-plugin.git</code> (tag <code>v1.9.0-flannel1</code> per <a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/version.sh#L59"><code>scripts/version.sh:59</code></a>).</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/download#L27"><code>scripts/download:27</code></a></div>
+        <div class="issue-desc"><code>git clone --branch=${VERSION_RUNC} https://github.com/opencontainers/runc</code> (version derived from <code>go.mod</code> via <code>go list -m</code>).</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/download#L35"><code>scripts/download:35</code></a></div>
+        <div class="issue-desc"><code>git clone --branch=${VERSION_HCSSHIM} https://github.com/microsoft/hcsshim</code> (same).</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/download#L43"><code>scripts/download:43</code></a></div>
+        <div class="issue-desc"><code>git clone --branch=${VERSION_CONTAINERD} https://${PKG_CONTAINERD_K3S/\/v*/}</code> (same).</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/tests/e2e/scripts/init.sh#L61"><code>tests/e2e/scripts/init.sh:61</code></a></div>
+        <div class="issue-desc"><code>git clone https://github.com/k3s-io/k3s.git</code> with no <code>--branch</code>, so it tracks whatever <code>HEAD</code> points at on <code>main</code>. Self-fetch from a moving ref.</div>
+      </div>
+    </div>
+    <p>For the five build-script clones, switch <code>VERSION_*</code> resolution to a SHA (or add a <code>git checkout &lt;SHA&gt;</code> after the shallow clone) and bake the expected SHA into <code>scripts/version.sh</code> next to the existing <code>K3S_ROOT_SHA256</code> constants. For the test clone, pin to the SHA the test was written against.</p>
+    </div>
+    <div class="card card-critical">
+    <h3 id="container-images-without-sha256-digest">Container images without `@sha256:` digest <a href="#container-images-without-sha256-digest" class="pilcrow">&#182;</a></h3>
+    <p>#### Distribution manifests (ship inside k3s, run on every cluster)</p>
+    <div class="issue-list">
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/manifests/coredns.yaml#L126"><code>manifests/coredns.yaml:126</code></a></div>
+        <div class="issue-desc"><code>rancher/mirrored-coredns-coredns:1.14.3</code></div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/manifests/local-storage.yaml#L69"><code>manifests/local-storage.yaml:69</code></a></div>
+        <div class="issue-desc"><code>rancher/local-path-provisioner:v0.0.35</code></div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/manifests/local-storage.yaml#L132"><code>manifests/local-storage.yaml:132</code></a></div>
+        <div class="issue-desc"><code>rancher/mirrored-library-busybox:1.37.0</code></div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/manifests/metrics-server/metrics-server-deployment.yaml#L46"><code>manifests/metrics-server/metrics-server-deployment.yaml:46</code></a></div>
+        <div class="issue-desc"><code>rancher/mirrored-metrics-server:v0.8.1</code></div>
+      </div>
+    </div>
+    <p>These four are the highest-impact unpinned images: the manifests are embedded in the k3s binary and applied unmodified on every k3s cluster. Append <code>@sha256:&lt;digest&gt;</code> to each tag and add Dependabot/Renovate coverage for <code>manifests/</code> so the digests stay current.</p>
+    <p>#### Dockerfile bases (build/test images, no digest)</p>
+    <div class="issue-list">
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/Dockerfile.test#L46"><code>Dockerfile.test:46</code></a></div>
+        <div class="issue-desc"><code>vagrantlibvirt/vagrant-libvirt:sha-a94ce0d</code></div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/package/Dockerfile#L1"><code>package/Dockerfile:1</code></a></div>
+        <div class="issue-desc"><code>alpine:3.22</code></div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/tests/e2e/scripts/Dockerfile#L1"><code>tests/e2e/scripts/Dockerfile:1</code></a></div>
+        <div class="issue-desc"><code>ubuntu:24.04</code></div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/tests/integration/Dockerfile.test#L1"><code>tests/integration/Dockerfile.test:1</code></a></div>
+        <div class="issue-desc"><code>golang:buster</code> (also a moving alias — <code>buster</code> is Debian 10, EOL since 2024-06-30, so the alias points at an unmaintained base).</div>
+      </div>
+    </div>
+    <p><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/Dockerfile.local#L1"><code>Dockerfile.local:1</code></a> reads <code>ARG GOLANG=golang:1.26.2-alpine3.22</code> — that&#39;s an <code>ARG</code>-defaulted base whose real pin lives wherever Dapper / the build wrapper sets <code>GOLANG</code>; the value here is the default fallback and is also undigested. Append <code>@sha256:&lt;digest&gt;</code> to each, or override via build-arg from a place where the digest is checked in.</p>
+    <p>#### Airgap / test fixture images (50 references)</p>
+    <p><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/airgap/volume-test.yaml#L22"><code>scripts/airgap/volume-test.yaml:22</code></a>, the 49 references under <code>tests/docker/</code>, <code>tests/e2e/</code>, <code>tests/integration/</code>, and <code>tests/perf/</code> — <code>nginx</code>, <code>busybox</code>, <code>pause</code>, longhorn, dnsutils, e2e-test-images, etc. Test fixtures are lower impact than distribution manifests, but <code>nginx</code> (line <a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/tests/e2e/cis_amd64_resource_files/daemonset.yaml#L16"><code>tests/e2e/cis_amd64_resource_files/daemonset.yaml:16</code></a>, no tag at all) and <code>busybox:stable</code> (<a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/tests/integration/localstorage/testdata/localstorage_pod.yaml#L9"><code>tests/integration/localstorage/testdata/localstorage_pod.yaml:9</code></a>) are floating refs even by tag standards. The remediation is the same: pin tags to <code>@sha256:</code> digests; for a one-shot fixture pin to whatever digest the test was last green against.</p>
+    </div>
+    <div class="card card-critical">
+    <h3 id="github-actions-token-permissions">GitHub Actions token permissions <a href="#github-actions-token-permissions" class="pilcrow">&#182;</a></h3>
+    <p>Two workflows omit a top-level <code>permissions:</code> block, which gives jobs the repo&#39;s default token (read-write on most scopes):</p>
+    <ul>
+      <li><code>.github/workflows/actionlint.yaml</code></li>
+      <li><code>.github/workflows/airgap.yaml</code></li>
+    </ul>
+    <p>Add <code>permissions: read-all</code> (or <code>contents: read</code>) at the workflow root and grant the narrowest write per job that needs it.</p>
+    <p>The following workflows declare sensitive write scopes — fine when the workflow legitimately needs them, but each one widens the blast radius if a pinned action is later compromised. Audit each block and drop scopes that are unused:</p>
+    <ul>
+      <li><code>.github/workflows/release.yml:38-39, 188-189</code> — <code>packages: write</code>, <code>id-token: write</code>, <code>contents: write</code> across the build and publish jobs.</li>
+      <li><code>.github/workflows/e2e.yaml:34, 42</code> — <code>packages: write</code>.</li>
+      <li><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/.github/workflows/scorecard.yml#L30"><code>.github/workflows/scorecard.yml:30</code></a> — <code>id-token: write</code> (required by the OpenSSF scorecard action).</li>
+      <li><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/.github/workflows/stale.yml#L13"><code>.github/workflows/stale.yml:13</code></a> — <code>contents: write</code> (the stale-bot does not need to write contents to close issues; verify and downgrade to <code>read</code>).</li>
+      <li><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/.github/workflows/trivy-scan.yml#L17"><code>.github/workflows/trivy-scan.yml:17</code></a> — <code>contents: write</code>.</li>
+      <li><a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/.github/workflows/updatecli.yaml#L17"><code>.github/workflows/updatecli.yaml:17</code></a> — <code>contents: write</code> (updatecli writes commits — required).</li>
+    </ul>
+    <p>Less sensitive <code>write</code> scopes (<code>issues</code>, <code>pull-requests</code>, <code>security-events</code>) appear on <code>codeql.yml</code>, <code>epic.yaml</code>, <code>scorecard.yml</code>, <code>stale.yml</code>, <code>trivy-scan.yml</code>, and <code>updatecli.yaml</code>. These are advisory: each is justified by the workflow&#39;s purpose, but worth a one-line review to confirm scope is the minimum required.</p>
+    </div>
+    <div class="card card-critical">
+    <h3 id="advisory-install-sh-trust-model">Advisory — install.sh trust model <a href="#advisory-install-sh-trust-model" class="pilcrow">&#182;</a></h3>
+    <p><code>install.sh</code> and <code>package/rpm/install.sh</code> are the user-facing <code>curl … | sh</code> recipes. Their <code>download()</code> helper (line <a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/install.sh#L429"><code>install.sh:429</code></a>) issues unverified <code>curl</code>/<code>wget</code>, but the surrounding flow downloads <code>sha256sum-${ARCH}.txt</code> from the same <code>INSTALL_K3S_ARTIFACT_URL</code> (line <a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/install.sh#L468"><code>install.sh:468</code></a>) and verifies the binary against it (<code>verify_binary()</code>, line <a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/install.sh#L567"><code>install.sh:567</code></a>). The risk is rooted in TOFU: anyone who controls the artifact URL controls both the binary and its declared hash. The repo cannot eliminate this without GPG-signing or cosign-signing release artifacts and shipping the verifier in a separately-trusted channel — out of scope for this scan, but worth tracking.</p>
+    </div>
+    <hr>
+    <h2 id="retro-dependency-types-not-explicitly-covered">Retro: dependency types not explicitly covered <a href="#retro-dependency-types-not-explicitly-covered" class="pilcrow">&#182;</a></h2>
+
+    <div class="card card-neutral">
+    <h3 id="r1-gpg-fingerprint-pinning-is-a-missed-verifier-pattern">R1. GPG-fingerprint pinning is a missed verifier pattern <a href="#r1-gpg-fingerprint-pinning-is-a-missed-verifier-pattern" class="pilcrow">&#182;</a></h3>
+    <p><strong>What was seen.</strong> <a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/.github/actions/vagrant-setup/action.yaml#L9-L16"><code>.github/actions/vagrant-setup/action.yaml:9-16</code></a> downloads the HashiCorp APT signing key, then verifies it via <code>gpg --show-keys --with-colons /tmp/hashicorp.asc | awk -F: &#39;$1==&quot;fpr&quot;{print $10; exit}&#39;</code> and compares the result against a hard-coded fingerprint constant. The inventory script flagged the curl as &quot;verifier ✗&quot;.</p>
+    <p><strong>Why current rules missed it.</strong> The verifier-pattern regex in <code>inventory.py</code> looks for <code>sha256sum -c</code>, <code>shasum -a 256 -c</code>, <code>sha512sum -c</code>, <code>cosign verify</code>, <code>gpg --verify</code>, <code>openssl dgst</code>, <code>*_SUM_*</code> references, and <code>ADD --checksum=</code>. A <code>gpg --show-keys</code>-then-fingerprint-compare pattern authenticates the downloaded key just as well as <code>gpg --verify</code>, but matches none of those tokens.</p>
+    <p><strong>Proposed change.</strong> Extend the verifier patterns in <code>inventory.py</code>: any command containing both <code>gpg --show-keys</code> (or <code>gpg2 --show-keys</code>) and a 40-hex string literal in the same ±10-line window counts as a verifier.</p>
+    </div>
+    <div class="card card-neutral">
+    <h3 id="r2-the-30-line-verifier-window-matches-across-unrelated-downloads">R2. The ±30-line verifier window matches across unrelated downloads <a href="#r2-the-30-line-verifier-window-matches-across-unrelated-downloads" class="pilcrow">&#182;</a></h3>
+    <p><strong>What was seen.</strong> <a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/Dockerfile.test#L77-L80"><code>Dockerfile.test:77-80</code></a> runs <code>curl -O -L &quot;https://golang.org/dl/${GO_VERSION}.linux-amd64.tar.gz&quot;</code> followed immediately by <code>tar -C /usr/local -xzf</code> with no <code>sha256sum -c</code> step. The script reported &quot;verifier ✓&quot; because the kubectl block at <code>:73-74</code> and the bento-box block at <code>:62-66</code> are inside the ±30-line window of line 77.</p>
+    <p><strong>Why current rules missed it.</strong> The verifier scan walks ±30 lines from the download line and reports &quot;verifier present&quot; whenever any verifier match appears in the window. It does not associate a verifier with a <em>specific</em> download command — so a verifier for kubectl 4 lines up satisfies the Go-tarball download below it.</p>
+    <p><strong>Proposed change.</strong> Tighten the association: a verifier counts only when the filename it references (the argument to <code>sha256sum -c</code> after <code>echo &quot;&lt;digest&gt;  &lt;file&gt;&quot;</code>, or the path in <code>--checksum=</code>) matches the output filename of the candidate download (the <code>-o</code>/<code>-O</code> argument, the <code>&gt;</code> redirect target, or the inferred basename of the URL). When the verifier mentions a different filename, treat the download as unverified even when other downloads in the window are properly verified. Equivalent rule for <code>${*_SUM_*}</code> shell variables: require the variable name to share a stem with the download&#39;s destination (e.g. <code>KUBECTL_SHA256</code> matches a download writing to <code>./kubectl</code>, but not one writing to <code>${GO_VERSION}.linux-amd64.tar.gz</code>).</p>
+    </div>
+    <div class="card card-neutral">
+    <h3 id="r3-install-sh-shell-case-labels-and-function-existence-checks-generate-false-positive-wget-curl-matches">R3. `install.sh` shell-case labels and function-existence checks generate false-positive `wget`/`curl` matches <a href="#r3-install-sh-shell-case-labels-and-function-existence-checks-generate-false-positive-wget-curl-matches" class="pilcrow">&#182;</a></h3>
+    <p><strong>What was seen.</strong> The inventory listed twelve &quot;candidate downloads&quot; in <code>install.sh</code> and eight in <code>package/rpm/install.sh</code> (lines <code>install.sh:377, 378, 395, 401, 440, 443, 444, 465, 554, 757</code> and the comments at <a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/install.sh#L77-L78"><code>install.sh:77-78</code></a> and <a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/package/rpm/install.sh#L72-L73"><code>package/rpm/install.sh:72-73</code></a>). Most are case labels (<code>wget)</code>), <code>verify_downloader curl || verify_downloader wget</code> existence checks, or comments showing the user-facing <code>curl … | sh</code> invocation. The single real download flow is <code>download() → download_hash() → verify_binary()</code>, which the digest does not surface as such.</p>
+    <p><strong>Why current rules missed it.</strong> The candidate-line filter checks for download-shape signals on the command itself (pipes into shell/tar, <code>-o</code>/<code>--output</code>/<code>-O</code> flags, <code>&gt;</code> redirect, archive extensions in URL). A bare <code>wget)</code> case label has no URL and no flags, so it slips through; a <code>verify_downloader wget</code> invocation likewise carries no URL.</p>
+    <p><strong>Proposed change.</strong> Two cheap filters:</p>
+    <ol>
+      <li>Skip lines where the matched tool token (<code>curl</code>/<code>wget</code>) appears as a shell case-label (<code>&lt;tool&gt;)</code> at end of token) or inside a backticks/<code>$(...)</code> substitution that is itself an argument to <code>command -v</code>/<code>which</code>/a function named like <code>verify_*</code>/<code>have_*</code>/<code>exists_*</code>.</li>
+      <li>Require the line to contain at least one URL-shaped token (<code>https?://...</code>, <code>git://</code>, <code>s3://</code>, <code>gs://</code>) OR a non-flag positional argument whose extension matches a download-format set (<code>.tar</code>, <code>.tar.gz</code>, <code>.tgz</code>, <code>.zip</code>, <code>.deb</code>, <code>.rpm</code>, <code>.box</code>, <code>.img</code>, <code>.iso</code>, <code>.bin</code>, <code>.exe</code>, <code>.sh</code>, <code>.json</code>, <code>.yaml</code>, <code>.yml</code>, <code>.txt</code>, <code>.asc</code>, <code>.sig</code>, <code>.pem</code>).</li>
+    </ol>
+    </div>
+    <div class="card card-neutral">
+    <h3 id="r4-git-clone-scanner-does-not-resolve-version-shell-variables-back-to-a-concrete-tag">R4. Git-clone scanner does not resolve `${VERSION_*}` shell variables back to a concrete tag <a href="#r4-git-clone-scanner-does-not-resolve-version-shell-variables-back-to-a-concrete-tag" class="pilcrow">&#182;</a></h3>
+    <p><strong>What was seen.</strong> The script reported <a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/build#L168"><code>scripts/build:168</code></a> and <a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/build#L171"><code>scripts/build:171</code></a> as <code>branch/tag $VERSION_CNIPLUGINS</code> and <code>$VERSION_FLANNEL_PLUGIN</code> — accurate, but loses the information that <code>scripts/version.sh</code> defines them as the literal tags <code>v1.9.1-k3s1</code> and <code>v1.9.0-flannel1</code>. Same story for the runc/hcsshim/containerd clones in <code>scripts/download</code>, where the values come from <code>go list -m</code>. A reader of the report cannot tell whether the variable expands to a SHA, a tag, or an empty string without opening the resolver script.</p>
+    <p><strong>Why current rules missed it.</strong> The git-clone scanner extracts the raw <code>--branch</code> argument and reports the variable name verbatim. It does not source sibling shell scripts (<code>scripts/version.sh</code>, <code>scripts/git_version.sh</code>) to resolve the variable.</p>
+    <p><strong>Proposed change.</strong> When the <code>--branch</code> argument is a <code>${VAR}</code> reference, resolve it best-effort by grepping sibling files (any <code>*.sh</code> in the same directory and one level up) for <code>^VAR=</code> assignments. Surface the resolved literal in the digest as a hint: <code>branch/tag $VERSION_CNIPLUGINS → &quot;v1.9.1-k3s1&quot;</code>. When multiple assignments appear (different arch branches in <code>case</code> blocks), list each. This does not change pinned/unpinned classification — a SHA-shaped value still pins and a tag-shaped one still opens an issue — but the reader can confirm the resolution without leaving the digest.</p>
+    </div>
+    <div class="card card-neutral">
+    <h3 id="r5-yum-zypper-repo-additions-in-shell-scripts-bypass-the-existing-repo-file-detector">R5. yum/zypper repo additions in shell scripts bypass the existing repo-file detector <a href="#r5-yum-zypper-repo-additions-in-shell-scripts-bypass-the-existing-repo-file-detector" class="pilcrow">&#182;</a></h3>
+    <p><strong>What was seen.</strong> <a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/install.sh#L586-L680"><code>install.sh:586-680</code></a> (the <code>setup_selinux</code> function and surrounding helpers) constructs a <code>[k3s-common]</code> yum/zypper repo entry referencing <code>rpm.rancher.io</code> (or <code>rpm-testing.rancher.io</code>) and writes it via <code>cat &gt; /etc/yum.repos.d/...</code>. The script also runs <code>zypper addrepo</code> and <code>dnf install</code> against that source. The existing <code>package_manager_signature_bypass[]</code> detector scans committed <code>.repo</code> / <code>.list</code> / <code>.sources</code> / <code>*.kiwi</code> files, but a repo added at runtime via shell escapes the static detector.</p>
+    <p><strong>Why current rules missed it.</strong> The detector targets static files in the repo. A shell-emitted repo entry is generated at install time and never appears as a checked-in <code>.repo</code> file.</p>
+    <p><strong>Proposed change.</strong> Extend the inventory&#39;s shell-script scan to flag patterns that add a package-manager source at runtime: heredocs or <code>cat &gt;</code> redirections that write into <code>/etc/yum.repos.d/</code>, <code>/etc/zypp/repos.d/</code>, <code>/etc/apt/sources.list.d/</code>, <code>/etc/apt/sources.list</code>, plus invocations of <code>zypper addrepo</code>, <code>dnf config-manager --add-repo</code>, <code>yum-config-manager --add-repo</code>, <code>add-apt-repository</code>, <code>apk add --repository</code>. For each, classify by whether <code>gpgcheck=</code> / <code>[signed-by=...]</code> / <code>--allow-unauthenticated</code> flags appear in the same block, mirroring the existing static-file rules.</p>
+    </div>
+    <div class="card card-neutral">
+    <h3 id="r6-tests-e2e-scripts-init-sh-63-is-a-code-comment-false-positive">R6. `tests/e2e/scripts/init.sh:63` is a code-comment false positive <a href="#r6-tests-e2e-scripts-init-sh-63-is-a-code-comment-false-positive" class="pilcrow">&#182;</a></h3>
+    <p><strong>What was seen.</strong> The digest lists <a href="https://github.com/k3s-io/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/tests/e2e/scripts/init.sh#L63"><code>tests/e2e/scripts/init.sh:63</code></a> as a curl candidate; the line is the comment <code># Use curl -X GET &lt;IP_ADDR&gt;:5000/v2/_catalog to see cached images</code>.</p>
+    <p><strong>Why current rules missed it.</strong> The candidate-line filter does not strip comments before pattern matching. A <code>#</code>-prefixed line is included because the line still contains the string <code>curl</code>.</p>
+    <p><strong>Proposed change.</strong> Before pattern matching on shell scripts (<code>*.sh</code>, <code>*.bash</code>, files with <code>#!/...sh</code> shebang), strip lines whose first non-whitespace character is <code>#</code>. Keep the line offset accurate by replacing the comment text with a blank line rather than dropping it, so reported <code>file:line</code> positions remain correct.</p>
+    </div>
+  </main>
+  <script>window.Prism = window.Prism || {}; Prism.manual = true;</script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-go.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-diff.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-typescript.min.js"></script>
+  <script>
+/* Deep Review — Prism initialization and line-number wrapping.
+ * Inlined into each generated HTML file by the beautify-review skill.
+ * Runs synchronously at the end of <body> — no event listeners.
+ *
+ * Prerequisite: a preceding <script> must set Prism.manual = true
+ * before the Prism core <script> loads.
+ */
+
+Prism.highlightAll();
+
+document.querySelectorAll('pre[data-start]').forEach(function(pre) {
+  var startLine = parseInt(pre.getAttribute('data-start'), 10) || 1;
+  var hlAttr = pre.getAttribute('data-line') || '';
+
+  /* Parse data-line into a Set of line numbers to highlight.
+   * Accepts comma-separated values: "75,76,77" or ranges: "75-84". */
+  var hlLines = new Set();
+  hlAttr.split(',').forEach(function(part) {
+    part = part.trim();
+    if (!part) return;
+    var m = part.match(/^(\d+)-(\d+)$/);
+    if (m) {
+      for (var i = parseInt(m[1], 10); i <= parseInt(m[2], 10); i++) hlLines.add(i);
+    } else {
+      hlLines.add(parseInt(part, 10));
+    }
+  });
+
+  var code = pre.querySelector('code');
+  if (!code) return;
+
+  var html = code.innerHTML;
+  var lines = html.split('\n');
+  /* Strip a trailing empty line that Prism sometimes leaves. */
+  if (lines.length > 0 && lines[lines.length - 1].trim() === '') lines.pop();
+
+  var wrapped = lines.map(function(line, idx) {
+    var lineNum = startLine + idx;
+    var cls = 'code-line' + (hlLines.has(lineNum) ? ' line-hl' : '');
+    return '<span class="' + cls + '">' + line + '</span>';
+  });
+
+  /* Join with '' (empty string) — NOT '\n'.
+   * Inside <pre>, newlines are literal whitespace. Since .code-line uses
+   * display: block, joining with '\n' produces double line spacing. */
+  code.innerHTML = wrapped.join('');
+  pre.style.counterReset = 'line ' + (startLine - 1);
+});
+
+/* GitHub reference tooltips — show title and state on hover for #N links.
+ * Links must have class="gh-ref" and data-title set by the generator. */
+document.querySelectorAll('a.gh-ref[data-title]').forEach(function(link) {
+  var tip = null;
+
+  link.addEventListener('mouseenter', function() {
+    if (tip) return;
+    tip = document.createElement('div');
+    tip.className = 'gh-tooltip';
+
+    var state = link.getAttribute('data-state') || '';
+    var type = link.getAttribute('data-type') || 'issue';
+    var label = state.charAt(0).toUpperCase() + state.slice(1).toLowerCase();
+
+    var pill = document.createElement('span');
+    pill.className = 'gh-tooltip-state gh-state-' + state;
+    pill.textContent = label + (type === 'pr' ? ' PR' : '');
+
+    var title = document.createElement('span');
+    title.className = 'gh-tooltip-title';
+    title.textContent = link.getAttribute('data-title');
+
+    tip.appendChild(pill);
+    tip.appendChild(title);
+    document.body.appendChild(tip);
+
+    var rect = link.getBoundingClientRect();
+    var tw = tip.offsetWidth;
+    var th = tip.offsetHeight;
+    var left = rect.left + window.scrollX;
+    var top = rect.top + window.scrollY - th - 8;
+
+    if (left + tw > window.innerWidth - 12) left = window.innerWidth - tw - 12;
+    if (left < 4) left = 4;
+    if (top < window.scrollY + 4) top = rect.bottom + window.scrollY + 8;
+
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+    tip.style.opacity = '1';
+  });
+
+  link.addEventListener('mouseleave', function() {
+    if (tip) { tip.remove(); tip = null; }
+  });
+});
+
+  </script>
+</body>
+</html>
