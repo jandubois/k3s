@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Supply Chain Scan: 20260429-162632-supply-chain</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+  <style>
+/* Deep Review — canonical stylesheet
+ * Inlined into each generated HTML file by the beautify-review skill.
+ * Edit this file to change the look of all future reviews.
+ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: #1f2937;
+  background: #f8f9fb;
+  margin: 0;
+  padding: 2rem 1rem;
+}
+main { max-width: 900px; margin: 0 auto; }
+h1 { font-size: 1.6rem; margin-bottom: 0.5rem; color: #111827; }
+h2 { font-size: 1.35rem; margin-top: 2.5rem; margin-bottom: 1rem; color: #111827; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.4rem; }
+h3 { font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 0.8rem; }
+hr { border: none; border-top: 2px solid #e5e7eb; margin: 2rem 0; }
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+code { font-family: "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace; font-size: 0.85em; background: #f3f4f6; padding: 0.15em 0.35em; border-radius: 4px; }
+
+/* Code blocks — override Prism defaults */
+pre { margin: 0 !important; border-radius: 0 0 8px 8px !important; }
+pre[class*="language-"] { font-size: 0.78rem; line-height: 1.3; }
+pre code { background: none; padding: 0; }
+
+/* Report metadata table */
+.meta-table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }
+.meta-table td { padding: 0.35rem 0.6rem; border: 1px solid #e5e7eb; vertical-align: top; }
+.meta-table td:first-child { font-weight: 600; width: 140px; background: #f9fafb; white-space: nowrap; }
+
+/* Cards — every section and finding lives in a card */
+.card { border-radius: 10px; padding: 1.2rem 1.4rem; margin-bottom: 1.2rem; }
+.card-neutral { background: #f1f3f5; border: 1px solid #d5d9e0; }
+.card-critical { background: #ffeef0; border: 1px solid #f5c6cb; }
+.card-important { background: #fff0e0; border: 1px solid #f5d9a8; }
+.card-suggestion { background: #f0f6ff; border: 1px solid #c7d9f5; }
+.card-design { background: #f0faf4; border: 1px solid #b7e4c7; }
+
+/* Severity section headings — colored to match their cards */
+.section-critical { color: #9b1c1c; }
+.section-important { color: #92400e; }
+.section-suggestion { color: #1e40af; }
+.section-design { color: #065f46; }
+
+/* Agent attribution pills */
+.pill { display: inline-block; font-size: 0.72rem; font-weight: 600; padding: 0.15em 0.55em; border-radius: 999px; margin-right: 0.3em; vertical-align: middle; letter-spacing: 0.01em; }
+.pill-claude { background: #e9d5ff; color: #6b21a8; }
+.pill-codex { background: #d1fae5; color: #065f46; }
+.pill-gemini { background: #ffe4e6; color: #9f1239; }
+
+/* Finding titles */
+.finding-title { font-weight: 700; font-size: 1rem; margin-bottom: 0.6rem; line-height: 1.4; }
+.finding-num { font-weight: 800; }
+
+/* Code file header — dark bar above each source code block.
+ * The filename is a GitHub permalink to the displayed line range.
+ * Text color is light gray (#adbac7) for the bar, green (#7ee787)
+ * for the hyperlink — matching GitHub's dark-mode file header. */
+.code-file-header { background: #2d333b; color: #adbac7; font-family: "SF Mono", "Fira Code", Menlo, Consolas, monospace; font-size: 0.75rem; padding: 0.4rem 0.9rem; border-radius: 8px 8px 0 0; margin-top: 0.8rem; }
+.code-file-header a { color: #7ee787; }
+.code-file-header a:hover { text-decoration: underline; }
+
+/* Line numbers (CSS counters) and line highlighting */
+.code-line { display: block; }
+.code-line::before {
+  content: counter(line);
+  counter-increment: line;
+  display: inline-block;
+  width: 3em;
+  margin-right: 0.8em;
+  padding-right: 0.5em;
+  text-align: right;
+  color: #636e7b;
+  border-right: 1px solid #3d4556;
+  user-select: none;
+}
+.line-hl { background: rgba(255, 199, 0, 0.18); }
+
+/* Pilcrow anchor links — hidden until parent is hovered */
+.pilcrow { color: #d1d5db; text-decoration: none; font-weight: 400; margin-left: 0.4em; opacity: 0; transition: opacity 0.15s; }
+h2:hover .pilcrow, h3:hover .pilcrow, .finding-title:hover .pilcrow { opacity: 1; }
+.pilcrow:hover { color: #6b7280; text-decoration: none; }
+
+/* Fix label */
+.fix-label { font-weight: 700; }
+
+/* Agent retro summary table */
+.retro-table { width: 100%; border-collapse: collapse; margin-top: 0.8rem; font-size: 0.9rem; table-layout: fixed; }
+.retro-table th, .retro-table td { padding: 0.45rem 0.7rem; border: 1px solid #e5e7eb; text-align: left; }
+.retro-table th { background: #f3f4f6; font-weight: 600; }
+.retro-table tr:nth-child(even) { background: #f9fafb; }
+
+/* Supply-chain Summary table — first column gets breathing room,
+ * numeric middle columns center, header keeps its label on one line. */
+.summary-table { width: 100%; border-collapse: collapse; margin: 0.4rem 0 0.8rem; font-size: 0.92rem; }
+.summary-table th, .summary-table td {
+  padding: 0.4rem 0.7rem;
+  border: 1px solid #d5d9e0;
+  vertical-align: top;
+  text-align: left;
+}
+.summary-table th { background: rgba(255, 255, 255, 0.65); font-weight: 600; white-space: nowrap; }
+.summary-table td:first-child { min-width: 11rem; white-space: nowrap; }
+.summary-table th:not(:first-child):not(:last-child),
+.summary-table td:not(:first-child):not(:last-child) { text-align: center; }
+
+/* Lists and paragraphs inside cards */
+.card ul, .card ol { margin: 0.4rem 0; padding-left: 1.5rem; }
+.card li { margin-bottom: 0.3rem; }
+.card p { margin: 0.5rem 0; }
+.card p:first-child { margin-top: 0; }
+
+/* Supply-chain issue rows — used by issueList for bullets that
+ * uniformly start with a `file:line` reference. The location renders
+ * in a dark bar above the description so the eye picks up the path
+ * separately from the prose. */
+.issue-list { margin: 0.6rem 0; }
+.issue-row {
+  margin-bottom: 0.7rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.55);
+}
+.issue-loc {
+  background: #2d333b;
+  color: #adbac7;
+  padding: 0.3rem 0.7rem;
+  font-family: "SF Mono", "Fira Code", Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+}
+.issue-loc a { color: #7ee787; text-decoration: none; }
+.issue-loc a:hover { text-decoration: underline; }
+.issue-loc code { background: none; padding: 0; color: inherit; font-size: 1em; }
+.issue-desc { padding: 0.55rem 0.8rem; }
+.issue-desc code { font-size: 0.85em; }
+
+/* Verdict highlight in metadata table */
+.verdict { font-weight: 700; }
+
+/* GitHub reference tooltips — shown on hover for #N links */
+.gh-tooltip {
+  position: absolute;
+  background: #1f2328;
+  color: #e6edf3;
+  padding: 0.55em 0.75em;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  max-width: 380px;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.28);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+.gh-tooltip-state {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.15em 0.5em;
+  border-radius: 999px;
+  margin-right: 0.4em;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+.gh-state-open { background: #238636; color: #fff; }
+.gh-state-closed { background: #848d97; color: #fff; }
+.gh-state-merged { background: #8957e5; color: #fff; }
+.gh-tooltip-title { vertical-align: baseline; }
+
+/* Mobile */
+@media (max-width: 640px) {
+  body { padding: 1rem 0.5rem; }
+  .card { padding: 0.9rem 1rem; }
+  pre code { font-size: 0.72rem; }
+}
+
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Supply Chain Scan: 20260429-162632-supply-chain</h1>
+
+    <table class="meta-table">
+      <tr><td>Date</td><td>2026-04-29 16:26</td></tr>
+      <tr><td>Repo</td><td><a href="https://github.com/jandubois/k3s">jandubois/k3s</a></td></tr>
+      <tr><td>Branch</td><td><code>main</code> @ <a href="https://github.com/jandubois/k3s/commit/ef3bb6566b"><code>ef3bb6566b</code></a></td></tr>
+      <tr><td>Kind</td><td>Supply chain scan</td></tr>
+      <tr><td>Verdict</td><td><span class="verdict">18 open issues (5 high, 13 medium/advisory)</span> &mdash; production build pulls (CNI/flannel/runc/containerd source, Helm charts) and the <code>setup_rootless.sh</code> self-fetch ride floating refs without digest verification; container images and k8s manifests are version-tagged but never digest-pinned</td></tr>
+    </table>
+
+    <hr>
+
+    <hr>
+    <h2 id="summary">Summary <a href="#summary" class="pilcrow">&#182;</a></h2>
+
+    <div class="card card-neutral">
+    <table class="summary-table">
+      <thead><tr><th>Ecosystem</th><th>Items</th><th>Pinned</th><th>Open issues</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><a href="#go-modules">Go modules</a></td><td>1 module</td><td>1 hash-verified via <code>go.sum</code></td><td>0</td><td>Renovate ✗ / Dependabot ✗ for <code>gomod</code></td></tr>
+        <tr><td>GitHub Actions <code>uses:</code></td><td>112 references</td><td>91 SHA-pinned, 21 local/docker</td><td>0</td><td>Dependabot ✓</td></tr>
+        <tr><td>Workflow token permissions</td><td>40 declarations</td><td>—</td><td>2 missing block, 13 sensitive-write</td><td>—</td></tr>
+        <tr><td>Container images (Dockerfiles)</td><td>4 FROMs + 3 <code>ARG</code>-ref</td><td>0 digest-pinned</td><td>4 unpinned + 3 advisory</td><td>Dependabot ✓ (docker)</td></tr>
+        <tr><td>Container images (k8s manifests)</td><td>54 <code>image:</code> refs</td><td>0 digest-pinned</td><td>54 unpinned (mostly test fixtures)</td><td>—</td></tr>
+        <tr><td>Inline downloads (curl/wget/ADD)</td><td>22 candidates</td><td>11 verifier ✓</td><td>4 real (7 false positives — version probes / wrappers covered downstream)</td><td>—</td></tr>
+        <tr><td>Run-from-network (<code>go install</code>)</td><td>4 commands</td><td>4 (Go module proxy)</td><td>0</td><td>Pinned versions; Go module proxy verifies via <code>go.sum</code></td></tr>
+        <tr><td>Git clones in scripts</td><td>6 invocations</td><td>0</td><td>6 (branch/tag refs, not SHAs)</td><td>—</td></tr>
+        <tr><td>Self-fetch from own remote</td><td>1 URL</td><td>0</td><td>1</td><td><code>main</code> branch, no verifier</td></tr>
+        <tr><td>Generic package managers</td><td>2 Jenkinsfiles</td><td>—</td><td>0 advisory</td><td>No native pinning artifact</td></tr>
+        <tr><td>RPM repo setup</td><td>1 file</td><td>—</td><td>1 advisory</td><td><code>gpgcheck=1</code> enabled, public key fetched over HTTPS without stored fingerprint</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <hr>
+    <h2 id="pinned-dependencies" class="section-design">Pinned dependencies <a href="#pinned-dependencies" class="pilcrow">&#182;</a></h2>
+
+    <div class="card card-design">
+    <h3 id="go-modules">Go modules <a href="#go-modules" class="pilcrow">&#182;</a></h3>
+    <ul>
+      <li><code>go.mod</code> + <code>go.sum</code> committed at the repo root. Hash-verified by <code>go mod verify</code>. The module declares a single <code>replace (</code> block (<a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/go.mod#L5"><code>go.mod:5</code></a>); the body should be reviewed when an audit looks at fork sourcing, but every entry resolves to a recorded <code>go.sum</code> line.</li>
+    </ul>
+    </div>
+    <div class="card card-design">
+    <h3 id="github-actions">GitHub Actions <a href="#github-actions" class="pilcrow">&#182;</a></h3>
+    <ul>
+      <li>All 112 <code>uses:</code> references in <code>.github/workflows/*.{yml,yaml}</code> and <code>.github/actions/**/action.yaml</code> are either SHA-pinned (<code>@40-hex</code>, 91 of 112) or local/<code>docker://</code> references (21). No floating tag-only refs found.</li>
+    </ul>
+    </div>
+    <div class="card card-design">
+    <h3 id="inline-downloads-with-verifiers">Inline downloads with verifiers <a href="#inline-downloads-with-verifiers" class="pilcrow">&#182;</a></h3>
+    <ul>
+      <li>Sonobuoy + kubectl in <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/Dockerfile.test#L27"><code>Dockerfile.test:27</code></a> and <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/Dockerfile.test#L72"><code>Dockerfile.test:72</code></a> — pinned versions, <code>sha256sum -c</code> against <code>${KUBECTL_SHA256}</code> / sonobuoy&#39;s published <code>*_checksums.txt</code>.</li>
+      <li>Vagrant box in <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/Dockerfile.test#L62"><code>Dockerfile.test:62</code></a> — <code>sha256sum -c</code> against <code>${BENTO_BOX_SHA256}</code> (gated on the variable being non-empty).</li>
+      <li>kubectl in <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/.github/workflows/e2e.yaml#L110"><code>.github/workflows/e2e.yaml:110</code></a>, <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/tests/e2e/scripts/init.sh#L8"><code>tests/e2e/scripts/init.sh:8</code></a> — <code>sha256sum -c</code> against literal SHA constant.</li>
+      <li>Go tarball in <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/tests/e2e/scripts/init.sh#L24"><code>tests/e2e/scripts/init.sh:24</code></a> — <code>sha256sum -c</code> against <code>${GO_SHA256}</code>.</li>
+      <li>Vagrant zip in <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/tests/e2e/scripts/init.sh#L48"><code>tests/e2e/scripts/init.sh:48</code></a> — <code>sha256sum -c</code> against <code>${VAGRANT_SHA256}</code>.</li>
+      <li>HashiCorp APT GPG key in <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/.github/actions/vagrant-setup/action.yaml#L9"><code>.github/actions/vagrant-setup/action.yaml:9</code></a> — <code>gpg --show-keys</code> paired with the constant fingerprint, the documented HashiCorp/Docker/k8s recipe.</li>
+      <li>k3s-root tarball in <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/download#L29"><code>scripts/download:29</code></a> — <code>sha256sum -c</code> against arch-specific <code>K3S_ROOT_SHA256</code> constants in <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/version.sh#L67-L83"><code>scripts/version.sh:67-83</code></a>.</li>
+    </ul>
+    </div>
+    <div class="card card-design">
+    <h3 id="run-from-network-commands-go-module-proxy-verifies-on-fetch">Run-from-network commands (Go module proxy verifies on fetch) <a href="#run-from-network-commands-go-module-proxy-verifies-on-fetch" class="pilcrow">&#182;</a></h3>
+    <ul>
+      <li><code>golang.org/x/vuln/cmd/govulncheck@v1.1.4</code> — <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/.github/workflows/govulncheck.yml#L22"><code>.github/workflows/govulncheck.yml:22</code></a></li>
+      <li><code>golang.org/x/tools/cmd/goimports@gopls/v0.20.0</code> — <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/Dockerfile.local#L18"><code>Dockerfile.local:18</code></a></li>
+      <li><code>github.com/onsi/ginkgo/v2/ginkgo@v2.17.1</code> — <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/tests/integration/Dockerfile.test#L16"><code>tests/integration/Dockerfile.test:16</code></a></li>
+      <li><code>github.com/onsi/gomega@v1.32.0</code> — <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/tests/integration/Dockerfile.test#L17"><code>tests/integration/Dockerfile.test:17</code></a></li>
+    </ul>
+    </div>
+    <hr>
+    <h2 id="open-issues" class="section-critical">Open issues <a href="#open-issues" class="pilcrow">&#182;</a></h2>
+
+    <div class="card card-critical">
+    <h3 id="top-tier-self-fetch-from-a-moving-ref">Top tier — self-fetch from a moving ref <a href="#top-tier-self-fetch-from-a-moving-ref" class="pilcrow">&#182;</a></h3>
+    <div class="issue-list">
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/tests/e2e/scripts/setup_rootless.sh#L4-L10"><code>tests/e2e/scripts/setup_rootless.sh:4-10</code></a></div>
+        <div class="issue-desc"><code>github_url=&quot;https://raw.githubusercontent.com/k3s-io/k3s/main/k3s-rootless.service&quot;</code> followed by <code>curl -LJO &quot;$github_url&quot;</code>. The script then drops the file under <code>/home/vagrant/.config/systemd/user/</code> and runs it. Anyone with push access to <code>k3s-io/k3s@main</code> controls the bytes; the fetch happens at vagrant-provision time, after the test repo has already been checked out at a specific SHA — so the sibling file in the working tree (<code>k3s-rootless.service</code> at the repo root) would be the safer source. Replace with <code>cp ../../../k3s-rootless.service &quot;$destination_path/&quot;</code> (relative-path copy) or pin the URL to <code>${VERSION_K8S}</code> / a SHA. <em>(see wiki §4.2)</em></div>
+      </div>
+    </div>
+    </div>
+    <div class="card card-critical">
+    <h3 id="high-production-build-pulls-source-by-tag-not-by-sha">High — production build pulls source by tag, not by SHA <a href="#high-production-build-pulls-source-by-tag-not-by-sha" class="pilcrow">&#182;</a></h3>
+    <div class="issue-list">
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/build#L168"><code>scripts/build:168</code></a></div>
+        <div class="issue-desc"><code>git clone --single-branch --depth=1 --branch=$VERSION_CNIPLUGINS https://github.com/rancher/plugins.git $WORKDIR</code>. <code>VERSION_CNIPLUGINS=&quot;v1.9.1-k3s1&quot;</code> (<a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/version.sh#L58"><code>scripts/version.sh:58</code></a>). The cloned tree compiles into the <code>cni</code> binary that ships in every k3s release. A retag of the upstream tag swaps the bytes; depth=1 prevents a later upgrade to a SHA without re-cloning.</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/build#L171"><code>scripts/build:171</code></a></div>
+        <div class="issue-desc"><code>git clone --single-branch --depth=1 --branch=$VERSION_FLANNEL_PLUGIN https://github.com/flannel-io/cni-plugin.git plugins/meta/flannel</code>. <code>VERSION_FLANNEL_PLUGIN=&quot;v1.9.0-flannel1&quot;</code> (<a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/version.sh#L59"><code>scripts/version.sh:59</code></a>). Same threat as above; the clone feeds the embedded flannel CNI plugin.</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/download#L27"><code>scripts/download:27</code></a></div>
+        <div class="issue-desc"><code>git clone --single-branch --branch=${VERSION_RUNC} --depth=1 https://github.com/opencontainers/runc ${RUNC_DIR}</code>. <code>VERSION_RUNC</code> derives from <code>go.mod</code> via <code>get-module-version</code>; the runc source feeds the build.</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/download#L35"><code>scripts/download:35</code></a></div>
+        <div class="issue-desc"><code>git clone --single-branch --branch=${VERSION_HCSSHIM} --depth=1 https://github.com/microsoft/hcsshim ${HCSSHIM_DIR}</code> (Windows path). Same shape.</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/download#L43"><code>scripts/download:43</code></a></div>
+        <div class="issue-desc"><code>git clone --single-branch --branch=${VERSION_CONTAINERD} --depth=1 https://${PKG_CONTAINERD_K3S/\/v*/} ${CONTAINERD_DIR}</code>. Pulls containerd&#39;s source for the embedded build. Same shape.</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/download#L47"><code>scripts/download:47</code></a></div>
+        <div class="issue-desc"><code>curl -sfL ${CHARTS_URL}/${CHART_NAME}/${CHART_FILE} -o ${CHARTS_DIR}/${CHART_FILE}</code> (<code>CHARTS_URL=https://k3s.io/k3s-charts/assets</code>). Embedded Helm charts (traefik, etc.) drop into <code>build/static/charts/</code> and ship inside the k3s binary; the download has no <code>sha256sum -c</code> against a stored digest. Adopt the <code>K3S_ROOT_SHA256</code> pattern from <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/version.sh#L67-L83"><code>scripts/version.sh:67-83</code></a> — list a per-chart SHA constant and verify after fetch.</div>
+      </div>
+    </div>
+    </div>
+    <div class="card card-critical">
+    <h3 id="medium-unverified-downloads">Medium — unverified downloads <a href="#medium-unverified-downloads" class="pilcrow">&#182;</a></h3>
+    <div class="issue-list">
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/Dockerfile.test#L77"><code>Dockerfile.test:77</code></a></div>
+        <div class="issue-desc"><code>RUN GO_VERSION=go1.23.6; curl -O -L &quot;https://golang.org/dl/${GO_VERSION}.linux-amd64.tar.gz&quot;; ... tar -C /usr/local -xzf ${GO_VERSION}.linux-amd64.tar.gz;</code>. The Go tarball lands and extracts with no <code>sha256sum -c</code>, in contrast to <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/tests/e2e/scripts/init.sh#L24"><code>tests/e2e/scripts/init.sh:24</code></a> which does verify. Add a <code>GO_SHA256</code> build-arg and a <code>sha256sum -c</code> step.</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/.github/workflows/trivy-scan.yml#L58"><code>.github/workflows/trivy-scan.yml:58</code></a></div>
+        <div class="issue-desc"><code>curl -fsSO https://raw.githubusercontent.com/rancher/vexhub/refs/heads/main/reports/rancher.openvex.json</code>. The downloaded VEX report drives <code>TRIVY_VEX</code>; tampered content can suppress real CVEs in the trivy scan output. Pin the URL to a release tag or commit SHA from <code>rancher/vexhub</code>, or carry the report in-repo.</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/image_scan.sh#L36"><code>scripts/image_scan.sh:36</code></a></div>
+        <div class="issue-desc">same VEX report fetched at scan time (<code>curl -fsS -o ${VEX_REPORT} https://raw.githubusercontent.com/rancher/vexhub/refs/heads/main/reports/rancher.openvex.json</code>). Apply the same fix as <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/.github/workflows/trivy-scan.yml#L58"><code>trivy-scan.yml:58</code></a>.</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/tests/e2e/scripts/init.sh#L61"><code>tests/e2e/scripts/init.sh:61</code></a></div>
+        <div class="issue-desc"><code>ls k3s 2&gt;/dev/null || git clone https://github.com/k3s-io/k3s.git</code>. Idempotent first-time clone of the repo onto the vsphere e2e node; the lack of a branch flag means HEAD of <code>main</code> lands. Test scaffolding only, but add <code>--branch &lt;release-tag&gt;</code> (or check out a specific ref afterwards) to keep the scaffolding reproducible.</div>
+      </div>
+    </div>
+    </div>
+    <div class="card card-critical">
+    <h3 id="container-images-version-tagged-but-no-sha256-digest">Container images — version-tagged but no `@sha256:` digest <a href="#container-images-version-tagged-but-no-sha256-digest" class="pilcrow">&#182;</a></h3>
+    <p>The repo ships zero digest-pinned image references. Dependabot&#39;s <code>docker</code> ecosystem covers <code>Dockerfile</code>, <code>package/Dockerfile</code>, and the test Dockerfiles, so floating <code>latest</code>-shaped tags would surface — but pinning by tag alone trusts whoever can push the tag.</p>
+    <p><strong>Production build / runtime images (highest impact):</strong></p>
+    <ul>
+      <li><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/package/Dockerfile#L1"><code>package/Dockerfile:1</code></a> — <code>FROM alpine:3.22 AS base</code>. Builds the production k3s image. Pin to <code>alpine:3.22@sha256:...</code>.</li>
+      <li><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/Dockerfile.local#L1"><code>Dockerfile.local:1</code></a> (default <code>ARG GOLANG=golang:1.26.2-alpine3.22</code>) — base for the dapper-driven build. Advisory: caller&#39;s build args may override; the in-repo default is unpinned.</li>
+      <li><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/Dockerfile.manifest#L2"><code>Dockerfile.manifest:2</code></a> (default <code>ARG GOLANG=golang:1.26.2-alpine3.23</code>, line 1) — same shape.</li>
+      <li><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/Dockerfile.test#L1"><code>Dockerfile.test:1</code></a> (default <code>ARG GOLANG=golang:1.26.2-alpine3.23</code>) — same shape; also <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/Dockerfile.test#L46"><code>Dockerfile.test:46</code></a> <code>FROM vagrantlibvirt/vagrant-libvirt:sha-a94ce0d</code> (no digest).</li>
+    </ul>
+    <p><strong>Embedded k8s manifests (deployed by every k3s install):</strong></p>
+    <div class="issue-list">
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/manifests/coredns.yaml#L126"><code>manifests/coredns.yaml:126</code></a></div>
+        <div class="issue-desc"><code>%{SYSTEM_DEFAULT_REGISTRY}%rancher/mirrored-coredns-coredns:1.14.3</code></div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/manifests/local-storage.yaml#L69"><code>manifests/local-storage.yaml:69</code></a></div>
+        <div class="issue-desc"><code>%{SYSTEM_DEFAULT_REGISTRY}%rancher/local-path-provisioner:v0.0.35</code></div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/manifests/local-storage.yaml#L132"><code>manifests/local-storage.yaml:132</code></a></div>
+        <div class="issue-desc"><code>%{SYSTEM_DEFAULT_REGISTRY}%rancher/mirrored-library-busybox:1.37.0</code></div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/manifests/metrics-server/metrics-server-deployment.yaml#L46"><code>manifests/metrics-server/metrics-server-deployment.yaml:46</code></a></div>
+        <div class="issue-desc"><code>%{SYSTEM_DEFAULT_REGISTRY}%rancher/mirrored-metrics-server:v0.8.1</code></div>
+      </div>
+    </div>
+    <p>These four images embed in the k3s binary and roll out at first boot. Add <code>@sha256:</code> to each and let Renovate/Dependabot keep both tag and digest in sync.</p>
+    <p><strong>Test fixtures (lower impact, still worth pinning):</strong></p>
+    <ul>
+      <li>50+ image references under <code>tests/docker/resources/</code>, <code>tests/e2e/amd64_resource_files/</code>, <code>tests/e2e/cis_amd64_resource_files/</code>, <code>tests/integration/**/testdata/</code>, <code>tests/perf/tests/**</code>, and <code>scripts/airgap/volume-test.yaml</code>. Mostly <code>rancher/mirrored-library-busybox:1.37.0</code>, <code>rancher/mirrored-library-nginx:1.29.1-alpine</code>, <code>registry.k8s.io/pause:3.1</code>, <code>registry.k8s.io/e2e-test-images/agnhost:2.53</code>, <code>gcr.io/kubernetes-e2e-test-images/dnsutils:1.3</code>. A few are bare floating tags worth flagging on their own:</li>
+    </ul>
+    <div class="issue-list">
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/tests/e2e/cis_amd64_resource_files/daemonset.yaml#L16"><code>tests/e2e/cis_amd64_resource_files/daemonset.yaml:16</code></a></div>
+        <div class="issue-desc">bare <code>nginx</code> (no tag at all → resolves to <code>:latest</code>)</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/tests/e2e/amd64_resource_files/local-path-provisioner.yaml#L22"><code>tests/e2e/amd64_resource_files/local-path-provisioner.yaml:22</code></a></div>
+        <div class="issue-desc"><code>nginx:stable-alpine</code> (floating)</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/tests/integration/longhorn/testdata/pod.yaml#L9"><code>tests/integration/longhorn/testdata/pod.yaml:9</code></a></div>
+        <div class="issue-desc"><code>nginx:stable-alpine</code> (floating)</div>
+      </div>
+      <div class="issue-row">
+        <div class="issue-loc"><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/tests/integration/localstorage/testdata/localstorage_pod.yaml#L9"><code>tests/integration/localstorage/testdata/localstorage_pod.yaml:9</code></a></div>
+        <div class="issue-desc"><code>busybox:stable</code> (floating)</div>
+      </div>
+    </div>
+    </div>
+    <div class="card card-critical">
+    <h3 id="github-actions-token-permissions">GitHub Actions — token permissions <a href="#github-actions-token-permissions" class="pilcrow">&#182;</a></h3>
+    <ul>
+      <li>2 workflows lack a top-level <code>permissions:</code> block, inheriting the repo-wide default (still write-capable in many orgs):</li>
+    </ul>
+    <ul>
+      <li><code>.github/workflows/actionlint.yaml</code></li>
+      <li><code>.github/workflows/airgap.yaml</code></li>
+    </ul>
+    <p>  Add <code>permissions: read-all</code> at the top and let any job that needs more declare it explicitly.</p>
+    <ul>
+      <li>13 sensitive-write scopes granted at workflow level (the per-job duplicates the script lists are the same declarations re-counted for each job in the workflow). Several are inherent to the job&#39;s purpose (release publishing, GHCR pushes, OIDC token minting); narrow the rest to the smallest job that needs the scope:</li>
+    </ul>
+    <ul>
+      <li><code>.github/workflows/release.yml:11,38,39,188,189</code> — <code>id-token</code>, <code>packages</code>, <code>contents</code> for the release job. Reasonable for a release workflow; the <code>permissions:</code> blocks already scope per-job.</li>
+      <li><code>.github/workflows/e2e.yaml:34,42</code> — <code>packages: write</code> for two jobs. Confirm both jobs actually publish images; otherwise demote to <code>read</code>.</li>
+      <li><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/.github/workflows/scorecard.yml#L30"><code>.github/workflows/scorecard.yml:30</code></a> — <code>id-token: write</code> for OSSF Scorecard&#39;s signed artifact upload. Required.</li>
+      <li><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/.github/workflows/stale.yml#L13"><code>.github/workflows/stale.yml:13</code></a>, <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/.github/workflows/trivy-scan.yml#L17"><code>.github/workflows/trivy-scan.yml:17</code></a>, <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/.github/workflows/updatecli.yaml#L17"><code>.github/workflows/updatecli.yaml:17</code></a> — <code>contents: write</code>. Audit whether <code>stale.yml</code> and <code>trivy-scan.yml</code> need <code>contents</code> (vs. the lower <code>issues</code>/<code>pull-requests</code> already granted).</li>
+    </ul>
+    <p>  Less sensitive <code>write</code> scopes (<code>security-events</code>, <code>issues</code>, <code>pull-requests</code>) the inventory listed as advisory are appropriate for the workflows they appear in (codeql, scorecard, stale, trivy-scan, epic, updatecli).</p>
+    </div>
+    <div class="card card-critical">
+    <h3 id="advisory">Advisory <a href="#advisory" class="pilcrow">&#182;</a></h3>
+    <ul>
+      <li><strong>Renovate / Dependabot coverage gap.</strong> <code>.github/dependabot.yml</code> configures <code>github-actions</code> and <code>docker</code> (across 6 directories), but not <code>gomod</code>. Go module updates land manually today; add a <code>gomod</code> ecosystem block (matched against <code>/</code>) so transitive vulnerabilities surface as PRs, or document why manual updates are preferred (k3s pins to a specific Kubernetes release line; full automation would fight that).</li>
+      <li><strong>Embedded chart digests.</strong> Even if <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/download#L47"><code>scripts/download:47</code></a> adopted SHA verification (above), <code>Chart.yaml</code>/<code>Chart.lock</code> does not exist for the in-repo chart bundles — the chart tarballs come pre-rendered. Mention this is by design when filing the chart-SHA issue, so the fix lands as a <code>*_SHA256</code> constant per chart rather than <code>helm dependency update</code>.</li>
+      <li><em></em><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/package/rpm/repo-setup.sh#L1-L8"><code>package/rpm/repo-setup.sh:1-8</code></a><em></em> — emits <code>/etc/yum.repos.d/rancher.repo</code> with <code>gpgcheck=1</code> and <code>gpgkey=https://rpm.rancher.io/public.key</code>. The signing posture is correct, but the key is fetched on first install over HTTPS without a stored fingerprint; a compromised <code>rpm.rancher.io</code> could swap both key and packages on the same install run. Vendor the public key into the repo and reference it via a <code>file://</code> path (or via an installed <code>rancher-keyring</code> package), then drop <code>repo_gpgcheck=0</code> (already not set, so this is just hardening).</li>
+      <li><em></em><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/Dockerfile.local#L18"><code>Dockerfile.local:18</code></a><em></em> — <code>RUN GOPROXY=direct go install golang.org/x/tools/cmd/goimports@gopls/v0.20.0</code>. <code>GOPROXY=direct</code> bypasses the module proxy, so the <code>go.sum</code> populated for the workspace <code>go.mod</code> does NOT cover this fetch. Either drop <code>GOPROXY=direct</code> (the proxy is the trust anchor) or populate a sidecar <code>go.sum</code> for the tool install.</li>
+      <li><em></em><a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/version.sh#L88-L89"><code>scripts/version.sh:88-89</code></a><em></em> — <code>VERSION_GOLANG=&quot;go&quot;$(curl -sL &quot;${GO_VERSION_URL}&quot; | tr -d &#39;[:space:]&#39;)</code>, fetching <code>https://raw.githubusercontent.com/kubernetes/kubernetes/${VERSION_K8S}/.go-version</code>. URL is tag-pinned to a third-party tag; output becomes the build&#39;s Go version. Low risk (k8s tag retag would also break wider builds), but worth noting that the bytes are unverified.</li>
+    </ul>
+    </div>
+    <hr>
+    <h2 id="retro-dependency-types-not-explicitly-covered">Retro: dependency types not explicitly covered <a href="#retro-dependency-types-not-explicitly-covered" class="pilcrow">&#182;</a></h2>
+
+    <div class="card card-neutral">
+    <ul>
+      <li><em></em>R1. <code>curl</code> whose stdout drives <code>$(...)</code> substitution.<em></em> <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/version.sh#L88-L89"><code>scripts/version.sh:88-89</code></a> runs <code>VERSION_GOLANG=&quot;go&quot;$(curl -sL &quot;${GO_VERSION_URL}&quot; | tr -d &#39;[:space:]&#39;)</code>. The captured string becomes the build&#39;s Go version. <strong>Where missed:</strong> the inline-download filter requires <code>-o</code>/<code>-O</code>/pipe-to-shell/<code>&gt;</code> redirect/archive extension; a <code>curl … | tr</code> capture matches none. <strong>Proposed change:</strong> add a sub-rule to the inline-download detector: <code>curl</code>/<code>wget</code> whose call appears inside <code>$(...)</code> or backtick substitution AND whose URL host sits outside the repo&#39;s own remotes is an unverified fetch. Severity is &quot;advisory&quot; because the captured string is rarely executed, but the version that drives the toolchain merits a flag.</li>
+      <li><em></em>R2. <code>GOPROXY=direct</code> cancels go.sum verification.<em></em> <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/Dockerfile.local#L18"><code>Dockerfile.local:18</code></a> sets <code>GOPROXY=direct go install ...</code>. The script bucketed it as a <code>go install</code> covered by the Go module proxy, but <code>direct</code> bypasses the proxy. <strong>Where missed:</strong> the Run-from-network rule treats every <code>go install</code> as proxy-verified. <strong>Proposed change:</strong> when classifying <code>go install</code>, scan the same shell statement (and the surrounding <code>ENV</code>/<code>ARG</code> lines for Dockerfiles) for <code>GOPROXY=direct</code>, <code>GOPROXY=off</code>, or any <code>GOPROXY</code> whose final fallback is <code>direct</code>. Downgrade to &quot;open issue&quot; unless a sibling <code>go.sum</code> covers the install target.</li>
+      <li><em></em>R3. <code>runtime_repo_file</code> advisory with empty <code>disabled[]</code> is noise.<em></em> <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/package/rpm/repo-setup.sh#L1"><code>package/rpm/repo-setup.sh:1</code></a> surfaced as a runtime repo emission, but the file enables <code>gpgcheck=1</code> with no bypass keys. The &quot;disabled: —&quot; rendering reads as a finding. <strong>Where missed:</strong> the <code>package_manager_signature_bypass[]</code> detector emits every <code>cat &gt; /etc/yum.repos.d/...</code> it sees, regardless of bypass content. <strong>Proposed change:</strong> suppress <code>runtime_repo_file</code> entries whose <code>disabled[]</code> is empty AND whose <code>gpgkey=</code> line points to a <code>file://</code> path or a constant in-repo key. Surface only when bypass keys appear, when the key is fetched over the network without a stored fingerprint, or when no <code>gpgkey</code> is set at all.</li>
+      <li><strong>R4. Wrapper-style chart bundles bypass the Helm dependency check.</strong> <a href="https://github.com/jandubois/k3s/blob/ef3bb6566b7bbc6cd5d07587d53c127e90d3c7df/scripts/download#L43-L48"><code>scripts/download:43-48</code></a> downloads chart tarballs into <code>build/static/charts/</code> without a <code>Chart.yaml</code>/<code>Chart.lock</code> anywhere in the repo. <strong>Where missed:</strong> the Helm-dependency rule looks for <code>Chart.yaml</code>/<code>Chart.lock</code> siblings; a script-driven bundle skips both. <strong>Proposed change:</strong> when an inline-download writes into a directory whose name matches <code>*charts*</code> AND the URL ends in <code>.tgz</code>, treat it as an embedded-chart fetch and require either a per-chart <code>*_SHA256</code> constant in scope or a sibling <code>Chart.lock</code>.</li>
+      <li><em></em>R5. <code>argref_froms</code> defaults deserve sub-classification.<em></em> <code>Dockerfile.local</code>/<code>Dockerfile.manifest</code>/<code>Dockerfile.test</code> all read <code>ARG GOLANG=golang:1.26.2-alpine3.22</code> then <code>FROM ${GOLANG}</code>. The script files them as advisory <code>argref_froms</code>, hiding that the in-repo defaults pin by tag (not digest). When CI overrides with a digest, the default is moot; otherwise the default applies. <strong>Proposed change:</strong> when an <code>argref_from</code> resolves to a default value declared in the same file, classify the default by the same pinned/unpinned rule as a literal <code>FROM</code>. Flag tag-only defaults as &quot;open issue (default applies when caller does not override)&quot; rather than burying them under advisory.</li>
+    </ul>
+    </div>
+  </main>
+  <script>window.Prism = window.Prism || {}; Prism.manual = true;</script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-go.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-diff.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-typescript.min.js"></script>
+  <script>
+/* Deep Review — Prism initialization and line-number wrapping.
+ * Inlined into each generated HTML file by the beautify-review skill.
+ * Runs synchronously at the end of <body> — no event listeners.
+ *
+ * Prerequisite: a preceding <script> must set Prism.manual = true
+ * before the Prism core <script> loads.
+ */
+
+Prism.highlightAll();
+
+document.querySelectorAll('pre[data-start]').forEach(function(pre) {
+  var startLine = parseInt(pre.getAttribute('data-start'), 10) || 1;
+  var hlAttr = pre.getAttribute('data-line') || '';
+
+  /* Parse data-line into a Set of line numbers to highlight.
+   * Accepts comma-separated values: "75,76,77" or ranges: "75-84". */
+  var hlLines = new Set();
+  hlAttr.split(',').forEach(function(part) {
+    part = part.trim();
+    if (!part) return;
+    var m = part.match(/^(\d+)-(\d+)$/);
+    if (m) {
+      for (var i = parseInt(m[1], 10); i <= parseInt(m[2], 10); i++) hlLines.add(i);
+    } else {
+      hlLines.add(parseInt(part, 10));
+    }
+  });
+
+  var code = pre.querySelector('code');
+  if (!code) return;
+
+  var html = code.innerHTML;
+  var lines = html.split('\n');
+  /* Strip a trailing empty line that Prism sometimes leaves. */
+  if (lines.length > 0 && lines[lines.length - 1].trim() === '') lines.pop();
+
+  var wrapped = lines.map(function(line, idx) {
+    var lineNum = startLine + idx;
+    var cls = 'code-line' + (hlLines.has(lineNum) ? ' line-hl' : '');
+    return '<span class="' + cls + '">' + line + '</span>';
+  });
+
+  /* Join with '' (empty string) — NOT '\n'.
+   * Inside <pre>, newlines are literal whitespace. Since .code-line uses
+   * display: block, joining with '\n' produces double line spacing. */
+  code.innerHTML = wrapped.join('');
+  pre.style.counterReset = 'line ' + (startLine - 1);
+});
+
+/* GitHub reference tooltips — show title and state on hover for #N links.
+ * Links must have class="gh-ref" and data-title set by the generator. */
+document.querySelectorAll('a.gh-ref[data-title]').forEach(function(link) {
+  var tip = null;
+
+  link.addEventListener('mouseenter', function() {
+    if (tip) return;
+    tip = document.createElement('div');
+    tip.className = 'gh-tooltip';
+
+    var state = link.getAttribute('data-state') || '';
+    var type = link.getAttribute('data-type') || 'issue';
+    var label = state.charAt(0).toUpperCase() + state.slice(1).toLowerCase();
+
+    var pill = document.createElement('span');
+    pill.className = 'gh-tooltip-state gh-state-' + state;
+    pill.textContent = label + (type === 'pr' ? ' PR' : '');
+
+    var title = document.createElement('span');
+    title.className = 'gh-tooltip-title';
+    title.textContent = link.getAttribute('data-title');
+
+    tip.appendChild(pill);
+    tip.appendChild(title);
+    document.body.appendChild(tip);
+
+    var rect = link.getBoundingClientRect();
+    var tw = tip.offsetWidth;
+    var th = tip.offsetHeight;
+    var left = rect.left + window.scrollX;
+    var top = rect.top + window.scrollY - th - 8;
+
+    if (left + tw > window.innerWidth - 12) left = window.innerWidth - tw - 12;
+    if (left < 4) left = 4;
+    if (top < window.scrollY + 4) top = rect.bottom + window.scrollY + 8;
+
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+    tip.style.opacity = '1';
+  });
+
+  link.addEventListener('mouseleave', function() {
+    if (tip) { tip.remove(); tip = null; }
+  });
+});
+
+  </script>
+</body>
+</html>
